@@ -1,0 +1,35 @@
+databaseChangeLog:
+  - changeSet:
+      id: 02_student_profile
+      author: evocoding
+      changes:
+          - createTable:
+              tableName: student_profile
+              columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                      primaryKey: true
+              - column:
+                  name: email
+                  type: NVARCHAR(60)
+              - column:
+                  name: address
+                  type: NVARCHAR(255)
+              - column:
+                  name: phone_number
+                  type: NVARCHAR(12)
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+              - column:
+                  name: modified_at
+                  type: TIMESTAMP
+              - column:
+                    name: student_id
+                    type: BIGINT
+                    constraints:
+                        foreignKeyName: fk_student_id
+                        references: student(id)
